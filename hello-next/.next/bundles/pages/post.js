@@ -3,6 +3,25 @@ __NEXT_REGISTER_PAGE('/post', function() {
           var comp =
       webpackJsonp([5],{
 
+/***/ "../node_modules/isomorphic-unfetch/browser.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = window.fetch || (window.fetch = __webpack_require__("../node_modules/unfetch/dist/unfetch.mjs").default || __webpack_require__("../node_modules/unfetch/dist/unfetch.mjs"));
+
+
+/***/ }),
+
+/***/ "../node_modules/unfetch/dist/unfetch.mjs":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony default export */ __webpack_exports__["default"] = (function(e,n){return n=n||{},new Promise(function(t,r){var s=new XMLHttpRequest;for(var o in s.open(n.method||"get",e,!0),n.headers)s.setRequestHeader(o,n.headers[o]);function u(){var e,n=[],t=[],r={};return s.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm,function(s,o,u){n.push(o=o.toLowerCase()),t.push([o,u]),r[o]=(e=r[o])?e+","+u:u}),{ok:2==(s.status/100|0),status:s.status,statusText:s.statusText,url:s.responseURL,clone:u,text:function(){return Promise.resolve(s.responseText)},json:function(){return Promise.resolve(s.responseText).then(JSON.parse)},blob:function(){return Promise.resolve(new Blob([s.response]))},headers:{keys:function(){return n},entries:function(){return t},get:function(e){return r[e.toLowerCase()]},has:function(e){return e.toLowerCase()in r}}}}s.withCredentials="include"==n.credentials,s.onload=function(){t(u())},s.onerror=r,s.send(n.body||null)})});;
+//# sourceMappingURL=unfetch.mjs.map
+
+
+/***/ }),
+
 /***/ "./components/Header.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -551,14 +570,6 @@ module.exports = __webpack_require__("./node_modules/next/dist/lib/link.js")
 
 /***/ }),
 
-/***/ "./node_modules/next/router.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./node_modules/next/dist/lib/router/index.js")
-
-
-/***/ }),
-
 /***/ "./node_modules/object-keys/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1005,49 +1016,99 @@ module.exports = function(originalModule) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router__ = __webpack_require__("./node_modules/next/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MyLayout_js__ = __webpack_require__("./components/MyLayout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__ = __webpack_require__("../node_modules/isomorphic-unfetch/browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__);
+
 var _jsxFileName = "/Users/sumitmadhwani/NextJS/hello-next/pages/post.js";
 
 
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
-var Content = Object(__WEBPACK_IMPORTED_MODULE_1_next_router__["withRouter"])(function (props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+
+
+
+var Post = function Post(props) {
+  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_MyLayout_js__["a" /* default */], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5
     }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
+  }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h1", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
     }
-  }, props.router.query.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+  }, props.show.name), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     }
-  }, "This is the blog post content."));
-});
-
-var Page = function Page(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_MyLayout_js__["a" /* default */], {
+  }, props.show.summary.replace(/<[/]?p>/g, '')), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("img", {
+    src: props.show.image.medium,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Content, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 8
     }
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page);
+Post.getInitialProps =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(context) {
+    var id, res, show;
+    return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            id = context.query.id;
+            _context.next = 3;
+            return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("https://api.tvmaze.com/shows/".concat(id));
+
+          case 3:
+            res = _context.sent;
+            _context.next = 6;
+            return res.json();
+
+          case 6:
+            show = _context.sent;
+            console.log("Fetched show: ".concat(show.name));
+            return _context.abrupt("return", {
+              show: show
+            });
+
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+
+  return function (_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Post); // const Content = withRouter((props) => (
+//     <div>
+//         <h1>{props.router.query.title}</h1>
+//         <p>This is the blog post content.</p>
+//     </div>
+// ))
+// const Page = (props) => (
+//     <Layout>
+//         <Content />
+//     </Layout>
+// )
+// export default Page
     (function (Component, route) {
       if(!Component) return
       if (false) return
